@@ -72,9 +72,14 @@ h1, h2, h3, h4, h5, h6 {
     grid-column: 1;
 }
 
-label {
+.sidebar label {
   color: white;
 }
+
+span {
+  color: red;
+}
+
 
 .bookshelf {
   background-color: rgba(255, 255, 255, 0.5);
@@ -83,11 +88,6 @@ label {
   grid-auto-rows: 300px;
   padding: 20px;
   gap: 20px;
-}
-
-.card {
-  background-color: white;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .layout {
@@ -99,6 +99,39 @@ label {
   background-size: cover;
 }
 
-span {
-  color: red;
+.card {
+  position: relative;
+  background-color: white;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booktitle {
+  font-family: 'blackjack', sans-serif;
+  font-size: 50px;
+}
+
+.bookauthor {
+  font-family: 'blackjack', sans-serif;
+  font-size: 20px;
+}
+
+.bookpages {
+  position: absolute;
+  bottom: 10px;
+}
+
+.bookstatus {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.remove-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <div class="layout">
@@ -39,11 +39,8 @@
         <div class="card">
             <div class="booktitle">ABC</div>
             <div class="bookauthor">By abc</div>
-            <div class="pages">158</div>
-            <div class="bookstatus">
-                <label for="isread">Read:</label>
-                <input type="checkbox">
-            </div>
+            <div class="bookpages">158</div>
+            <input class="bookstatus" type="checkbox">
             <button class="remove-btn">Remove</button>
         </div>
         <div class="card"></div>
