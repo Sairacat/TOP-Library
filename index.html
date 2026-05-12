@@ -8,20 +8,22 @@
     <script src="./script.js"></script>
 </head>
 <body>
-    <div class="book-sheet">
+    <div class="layout">
+    <div class="sidebar">
+    <form class="book-sheet">
     <div>
-        <label for="title">Book Title: </label>
-        <input type="text" id="title">
+        <label for="title">Title<span>*</span>: </label>
+        <input type="text" id="title" required>
     </div>
 
     <div>
-        <label for="author">Author: </label>
-        <input type="text" id="author">
+        <label for="author">Author<span>*</span>: </label>
+        <input type="text" id="author" required>
     </div>
 
     <div>
-        <label for="pages">Pages: </label>
-        <input type="number" id="pages">
+        <label for="pages">Pages<span>*</span>: </label>
+        <input type="number" id="pages" required>
     </div>
 
     <div>
@@ -29,7 +31,29 @@
         <input type="checkbox" id="status">
     </div>
 
-    <button class="submit-btn">SUBMIT</button>
+    <button type="submit" class="submit-btn">SUBMIT</button>
+    </form>
+    </div>
+
+    <div class="bookshelf">
+        <div class="card">
+            <div class="booktitle">ABC</div>
+            <div class="bookauthor">By abc</div>
+            <div class="pages">158</div>
+            <div class="bookstatus">
+                <label for="isread">Read:</label>
+                <input type="checkbox">
+            </div>
+            <button class="remove-btn">Remove</button>
+        </div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
     </div>
 </body>
 </html>

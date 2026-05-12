@@ -46,13 +46,59 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+@font-face {
+  font-family: 'blackjack';
+  src: 
+  url(./fonts/blackjack/blackjack-webfont.woff2)format(woff2),
+  url(./fonts/blackjack/blackjack-webfont.woff)format(woff);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.sidebar {
+  padding: 15px;
+}
+
 .book-sheet {
-    width: 300px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 15px;
-    border: 2px solid black;
-    gap: 10px;
+    gap: 30px;
+    grid-column: 1;
+}
+
+label {
+  color: white;
+}
+
+.bookshelf {
+  background-color: rgba(255, 255, 255, 0.5);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  grid-auto-rows: 300px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+  background-image: url(./pic/nwyzwpwqbe0h1.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+span {
+  color: red;
 }
