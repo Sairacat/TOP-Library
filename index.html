@@ -10,6 +10,10 @@
 <body>
     <div class="layout">
     <div class="sidebar">
+    <div class="wrapper">
+        <div class="sidebar-title">
+            My Little Library
+        </div>
     <form class="book-sheet">
     <div>
         <label for="title">Title<span>*</span>: </label>
@@ -26,31 +30,30 @@
         <input type="number" id="pages" required>
     </div>
 
-    <div>
-        <label for="status">Read: </label>
+    <div class="form-read">
+        <label for="status">Read or not: </label>
         <input type="checkbox" id="status">
     </div>
 
     <button type="submit" class="submit-btn">SUBMIT</button>
     </form>
     </div>
+    </div>
 
     <div class="bookshelf">
+        <div class="toggle-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="20px">
+                <title>menu</title><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" fill="black"/>
+            </svg>
+        </div>
         <div class="card">
-            <div class="booktitle">ABC</div>
-            <div class="bookauthor">By abc</div>
-            <div class="bookpages">158 pages</div>
+            <div class="booktitle">Sample Title</div>
+            <div class="bookauthor">By Sample Author</div>
+            <div class="bookpages">128 pages</div>
             <div class="statuslabel">Unfinished</div>
             <input class="bookstatus" type="checkbox">
             <button class="remove-btn">❌</button>
         </div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
     </div>
     </div>
 </body>

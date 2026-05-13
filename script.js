@@ -3,17 +3,28 @@
 
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
-const pages = document.querySelector('#pages')
-const isRead = document.querySelector('#status')
-const submitBtn = document.querySelector('.submit-btn')
-const bookShelf = document.querySelector('.bookshelf')
-const bookSheet = document.querySelector('.book-sheet')
+const pages = document.querySelector('#pages');
+const isRead = document.querySelector('#status');
+const submitBtn = document.querySelector('.submit-btn');
+const bookShelf = document.querySelector('.bookshelf');
+const bookSheet = document.querySelector('.book-sheet');
+const toggleBtn = document.querySelector('.toggle-btn');
+const layout = document.querySelector('.layout');
 const myLibrary = [];
 
 bookSheet.addEventListener('submit', (e) => {
     e.preventDefault();
     addBookToLibrary();
     displayBook();
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+    isRead.checked = false;
+})
+
+toggleBtn.addEventListener('click', () => {
+    layout.classList.toggle('layout-change');
+
 })
 
 
