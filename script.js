@@ -39,8 +39,22 @@ function addBookToLibrary () {
 
 function displayBook () {
     for(let book of myLibrary) {
+
+        const cards = document.querySelectorAll('.card');
+        let shouldSkip = false
+        for(let card of cards) {
+            if(card.id === book.id) {
+                shouldSkip = true;
+                break
+            }
+        }
+
+        if(shouldSkip) {
+            continue;
+        }
         
         const card = document.createElement('div');
+        card.id = book.id;
         card.classList.add('card');
 
         const bookTitle = document.createElement('div');
@@ -52,36 +66,44 @@ function displayBook () {
         bookAuthor.classList.add('bookauthor');
 
         const bookPages = document.createElement('div');
-        bookPages.textContent = book.pages;
+        bookPages.textContent = `${book.pages} pages`;
         bookPages.classList.add('bookpages');
+
+        const statusLabel = document.createElement('div');
+        if(book.isRead) {
+            statusLabel.textContent = 'Read';
+        } else {
+            statusLabel.textContent = 'Unfinished';
+        }
+        statusLabel.classList.add('statuslabel')
 
         const bookStatus = document.createElement('input');
         bookStatus.type = 'checkbox';
         bookStatus.checked = book.isRead;
         bookStatus.classList.add('bookstatus');
+        bookStatus.addEventListener('click', () => {
+            book.isRead = bookStatus.checked;
+            if(book.isRead) {
+            statusLabel.textContent = 'Read';
+        } else {
+            statusLabel.textContent = 'Unfinished';
+        }
+        })
 
         const removeBtn = document.createElement('button');
-        removeBtn.textContent = 'Remove';
+        removeBtn.textContent = '❌';
         removeBtn.id = book.id;
         removeBtn.classList.add('remove-btn');
         removeBtn.addEventListener('click', () => {
-            let cards = document.querySelectorAll('.card');
-            for(let book of myLibrary) {
-                if(removeBtn.id === book.id) {
-                    let index = myLibrary.indexOf(book);
-                    myLibrary.splice(index, 1);
-                }
-            }
-            for(let card of cards) {
-                if(card.contains(removeBtn)) {
-                    bookShelf.removeChild(card)
-                }
-            }
+            let index = myLibrary.indexOf(book);
+            myLibrary.splice(index, 1);
+            card.remove();
         })
 
         card.appendChild(bookTitle);
         card.appendChild(bookAuthor);
         card.appendChild(bookPages);
+        card.appendChild(statusLabel);
         card.appendChild(bookStatus);
         card.appendChild(removeBtn);
         bookShelf.appendChild(card);
