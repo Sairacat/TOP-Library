@@ -36,6 +36,10 @@ function Book (title, author, pages, isRead, id) {
     this.id = id
 }
 
+Book.prototype.isReadToggle = function() {
+    this.isRead = this.isRead === false ? true : false;
+}
+
 
 function addBookToLibrary () {
     const newBookTitle = title.value;
@@ -93,7 +97,7 @@ function displayBook () {
         bookStatus.checked = book.isRead;
         bookStatus.classList.add('bookstatus');
         bookStatus.addEventListener('click', () => {
-            book.isRead = bookStatus.checked;
+            book.isReadToggle();
             if(book.isRead) {
             statusLabel.textContent = 'Read';
         } else {
