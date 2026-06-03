@@ -28,17 +28,21 @@ toggleBtn.addEventListener('click', () => {
 })
 
 
-function Book (title, author, pages, isRead, id) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
-    this.id = id
+
+class Book {
+    constructor(title, author, pages, isRead, id) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+        this.id = id;
+    }
+
+    isReadToggle() {
+        this.isRead = this.isRead === false ? true : false;
+    }
 }
 
-Book.prototype.isReadToggle = function() {
-    this.isRead = this.isRead === false ? true : false;
-}
 
 
 function addBookToLibrary () {
