@@ -88,6 +88,11 @@ span {
   color: red;
 }
 
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
 
 .bookshelf {
   position: relative;
@@ -300,4 +305,9 @@ input[type = 'number']:focus {
 .submit-btn:hover {
   background-color: greenyellow;
   cursor: pointer;
+}
+
+input + span {
+  width: 100%;
+  word-break: break-all;
 }

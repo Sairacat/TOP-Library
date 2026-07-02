@@ -12,14 +12,49 @@ const toggleBtn = document.querySelector('.toggle-btn');
 const layout = document.querySelector('.layout');
 const myLibrary = [];
 
+
+const titleError = document.querySelector('#title + span');
+const authorError = document.querySelector('#author + span');
+const pagesError = document.querySelector('#pages + span');
+
 bookSheet.addEventListener('submit', (e) => {
+    const hasInvalidControl = !title.validity.valid || !author.validity.valid || !pages.validity.valid
+
+    if(hasInvalidControl) {
+        e.preventDefault();
+        showErrorMessage()
+        return
+    }
+
     e.preventDefault();
     addBookToLibrary();
     displayBook();
-    title.value = '';
-    author.value = '';
-    pages.value = '';
-    isRead.checked = false;
+    bookSheet.reset();
+
+})
+
+title.addEventListener('input', () => {
+    if(title.validity.valid) {
+        titleError.textContent = '';
+    }else {
+        showTitleError();
+    }
+})
+
+author.addEventListener('input', () => {
+    if(author.validity.valid) {
+        authorError.textContent = '';
+    }else {
+        showAuthorError()
+    }
+})
+
+pages.addEventListener('input', () => {
+    if(pages.validity.valid) {
+        pagesError.textContent = '';
+    }else {
+        pagesError.textContent = 'Please enter the number of pages';
+    }
 })
 
 toggleBtn.addEventListener('click', () => {
@@ -127,5 +162,35 @@ function displayBook () {
         card.appendChild(removeBtn);
         bookShelf.appendChild(card);
 
+    }
+}
+
+function showTitleError() {
+    if(title.validity.valueMissing) {
+        titleError.textContent = 'Please enter a title';
+    }else if(title.validity.patternMismatch) {
+        titleError.textContent = 'Numbers are not allowed';
+    }
+}
+
+function showAuthorError() {
+    if(author.validity.valueMissing) {
+        authorError.textContent = "Please enter an author's name";
+    }else if(author.validity.patternMismatch) {
+        authorError.textContent = 'Numbers are not allowed';
+    }
+}
+
+function showErrorMessage() {
+    if(!title.validity.valid) {
+        showTitleError()
+    }
+
+    if(!author.validity.valid) {
+        showAuthorError()
+    }
+
+    if(!pages.validity.valid) {
+        pagesError.textContent = "Please enter number of pages";
     }
 }
